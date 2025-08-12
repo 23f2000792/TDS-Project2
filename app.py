@@ -25,10 +25,12 @@ import tarfile
 import zipfile
 import tempfile
 import shutil
-import os
+import sys
 
 app = FastAPI()
 load_dotenv()
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # --- Precise file tracking & cleanup helpers ---
 def _snapshot_files(root: str = "/tmp") -> set[str]:
